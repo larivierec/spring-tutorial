@@ -14,13 +14,15 @@ public class SpringDatabaseCommsApplication {
     private static Logger LOGGER = LoggerFactory.getLogger(SpringDatabaseCommsApplication.class);
 
     public static void main(String[] args) {
-        //BinarySearchImpl search = new BinarySearchImpl(new QuickSortAlgorithm());
-        //int result = search.search(new int[] { 124, 5,2,3,6}, 7);
-
         ApplicationContext app_context = SpringApplication.run(SpringDatabaseCommsApplication.class, args);
         PersonDAO dao0 = app_context.getBean(PersonDAO.class);
+        PersonDAO dao1 = app_context.getBean(PersonDAO.class);
 
-        LOGGER.debug("{}", dao0.getDatabaseConnection());
+        LOGGER.info("{}",dao0);
+        LOGGER.info("{}",dao1);
+        LOGGER.info("{}", dao0.getDatabaseConnection());
+        LOGGER.info("{}", dao1.getDatabaseConnection());
+
     }
 
 }
