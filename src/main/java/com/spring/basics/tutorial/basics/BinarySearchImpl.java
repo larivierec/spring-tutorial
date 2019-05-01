@@ -1,17 +1,35 @@
 package com.spring.basics.tutorial.basics;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl
 {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ISortAlgorithm m_sort_algorithm;
+
+    @PostConstruct
+    public void BeanConstruction()
+    {
+        logger.info("BeanConstruction starting postConstruct");
+    }
+
+    @PreDestroy
+    public void BeanDestruction()
+    {
+        logger.info("Bean Destruction starting preDestroy");
+    }
 
     public BinarySearchImpl(ISortAlgorithm algo)
     {

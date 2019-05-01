@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 public class ComponentPersonDAO {
 
     @Autowired
-    private JdbcConnection conn;
-    public JdbcConnection getDatabaseConnection()
+    private ComponentJdbcConnection conn;
+    public ComponentJdbcConnection getComponentJdbcConnection()
     {
         return this.conn;
     }
 
-    public void setJdbcConnection(JdbcConnection conn) {
+    public void setComponentJdbcConnection(ComponentJdbcConnection conn) {
         this.conn = conn;
     }
 }
